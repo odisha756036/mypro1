@@ -3,58 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Animated Text</title>
+<title>Animated HTML Page</title>
 <style>
   body {
-    background-color: #f0f0f0;
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     margin: 0;
     overflow: hidden;
   }
-  
-  .header {
-    font-size: 24px;
-    font-weight: bold;
+
+  .container {
     text-align: center;
-    margin-bottom: 20px;
-    color: #333;
   }
-  
-  .moving-text-container {
+
+  .animated-box {
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    border-radius: 50%;
     position: relative;
-    width: 100%;
-    text-align: center;
+    animation: bounce 2s infinite ease-in-out;
   }
-  
-  .moving-text {
-    font-size: 18px;
-    color: #007bff; /* Blue color */
+
+  .animated-box:before, .animated-box:after {
+    content: '';
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    white-space: nowrap;
-    animation: moveText 20s linear infinite;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: #2ecc71;
+    border-radius: 50%;
+    animation: rotate 2s infinite linear;
   }
-  
-  @keyframes moveText {
-    from { left: 100%; }
-    to { left: -100%; }
+
+  .animated-box:after {
+    background-color: #e74c3c;
+    width: 40px;
+    height: 40px;
+    animation: rotate-reverse 2s infinite linear;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(0); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+
+  @keyframes rotate-reverse {
+    0% { transform: translate(-50%, -50%) rotate(0); }
+    100% { transform: translate(-50%, -50%) rotate(-360deg); }
   }
 </style>
 </head>
 <body>
-  <div class="header">
-    My Name is Trilochan Karan
-  </div>
-  <div class="moving-text-container">
-    <div class="moving-text">
-      This code is developed by Rashmi and deployed through Jenkins and Ansible
-    </div>
+  <div class="container">
+    <div class="animated-box"></div>
+    <h1>Animated HTML Page</h1>
+    <p>Hello This is trilochan karan .</p>
   </div>
 </body>
 </html>
+
