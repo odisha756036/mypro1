@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animated Text</title>
+<style>
+  body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+  }
+  
+  .header {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .moving-text-container {
+    position: relative;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .moving-text {
+    font-size: 18px;
+    color: #007bff; /* Blue color */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    animation: moveText 20s linear infinite;
+  }
+  
+  @keyframes moveText {
+    from { left: 100%; }
+    to { left: -100%; }
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    My Name is Trilochan Karan
+  </div>
+  <div class="moving-text-container">
+    <div class="moving-text">
+      This code is developed by Trilochan and deployed through Jenkins and Ansible
+    </div>
+  </div>
+</body>
+</html>
